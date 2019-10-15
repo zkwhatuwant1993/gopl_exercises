@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"net/url"
 	"strings"
 )
 
@@ -14,8 +13,7 @@ import (
 func SearchIssues(terms []string) (*IssueSearchResult, error) {
 	// 构造query param
 	queryStr := strings.Join(terms, "+")
-	queryParam := url.QueryEscape(queryStr)
-	requestStr := SearchURL + "/issues?q=" + queryParam
+	requestStr := SearchURL + "/issues?q=" + queryStr
 	resp, err := http.Get(requestStr)
 	if err != nil {
 		return nil, err

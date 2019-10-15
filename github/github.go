@@ -18,12 +18,12 @@ type Issue struct {
 	Title     string
 	State     string
 	User      *User
-	CreatedAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"created_at"`
 	Body      string    // in Markdown format
 }
 
 // IssueSearchResult 表示http请求结果
 type IssueSearchResult struct {
-	TotalCount int
+	TotalCount int `json:"total_count"`
 	Items      []Issue
 }
